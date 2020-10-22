@@ -26,4 +26,46 @@ containsTypo(4) -> True
 """
 def firstDraftWithTypo(n):
     # Your code here
+    # [ draft1, draft2, draft3, draft4, draft n-1, draft n]
+    # if we find the draft with the typo, the first draft withthe typo (target) is before the current draft
+    # if current draft does not have the typo, the first draft with the typo is after the current draft. 
+    
+    
+    # find middle index within the min and max indices
+    #if the middle is the rotation point:
+        # middle is rotation if the prev element > current_element
+    # else:
+        # rotated yet?
+        # we can tell that by comparing the first element in the array.
+    # if current_element >= first_element: still need to rotate.
+        # search right
+        # move the min index to middle + 1
+    # else if current element < first element: we have rotated
+        # search left:
+        # move the max index to the middle index
+    # Keep going until max and min cross
+
+# start w/ min and max
+    min = 0
+    max = n
+
+    while not max <= min:
+        guess = (min + max) // 2
+        contains_typo = containsTypo(guess)
+        if contains_typo:
+            # the first draft w/ the typo is before our guess
+            # look left
+            # we could check if it's the first draft by calling containsTypo(guess - 1)
+            # if not containsTypo(guess - 1):
+            #     return guess
+            # move max to the guess value
+            max = guess - 1
+        else:
+            # current draft doesn't have a typo
+            # so the first draft w/ typo is after our guess
+            # look right
+            # move min to guess + 1
+            min = guess + 1
+    # repeat
+    return min
 
