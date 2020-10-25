@@ -75,6 +75,7 @@ def find_rotation_point(surnames):
 
     # if the middle surname is the rotation point:  (base case)
         # middle surname is rotation if prev element is > than current
+        # because the rotation point may or mot be in the middle.
         # return the index
     # otherwise:
     # have we rotated yet?
@@ -97,3 +98,14 @@ def find_rotation_point(surnames):
 
     # keep going until max and min cross
     return min
+
+    # ------------ alternate approach ----------- for rotated sorted array, binary search
+    #     def findValueSortedShiftedArray(nums, target):
+    # #find index in nums in my for loop
+    # for i in nums:  
+    #      #itereate through and see if index equals the target
+    #     if i == target: # BASE CASE
+    #         # if target is found, return the nums index
+    #         return nums.index(i)
+    # # if no target return -1
+    # return -1
